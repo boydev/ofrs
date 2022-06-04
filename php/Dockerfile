@@ -17,6 +17,6 @@ RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
