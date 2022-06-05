@@ -29,11 +29,6 @@ INSERT INTO `artist` (`id`, `name`, `is_band`) VALUES
 (3, 'Kiesza', 0);
 
 
-INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20220604184927', '2022-06-04 19:43:53', 108),
-('DoctrineMigrations\\Version20220605150322', '2022-06-05 16:01:04', 97);
-
-
 INSERT INTO `genre` (`id`, `name`) VALUES
 (1, 'Rock n Roll'),
 (2, 'Dance'),
