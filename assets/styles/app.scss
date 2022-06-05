@@ -1,0 +1,18 @@
+// Make sure the bootstrap-sass and lato fonts are resolved correctly
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$lato-font-path: '~lato-font/fonts';
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~@fortawesome/fontawesome-free/css/v4-shims.css";
+
+// pick the Lato fonts individually to avoid importing the entire font family
+@import '~lato-font/scss/public-api';
+@include lato-include-font('normal');
+@include lato-include-font('bold');
+
+@import "bootstrap-tagsinput.scss";
+
+body {
+    background-color: lightcyan;
+}

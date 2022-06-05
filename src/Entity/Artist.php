@@ -32,7 +32,7 @@ class Artist
     /**
      * @ORM\ManyToMany(targetEntity=Song::class, mappedBy="artist")
      */
-    private $songs;
+    private Collection $songs;
 
     public function __construct()
     {
@@ -97,6 +97,6 @@ class Artist
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->name;
     }
 }

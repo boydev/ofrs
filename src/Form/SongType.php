@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Song;
+use App\Form\Type\GenreInputType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,6 +16,10 @@ class SongType extends AbstractType
             ->add('title')
             ->add('lyrics')
             ->add('artist')
+            ->add('genre', GenreInputType::class, [
+                'label' => 'Genre',
+                'required' => false,
+            ])
         ;
     }
 

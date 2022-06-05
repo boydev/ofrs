@@ -17,22 +17,28 @@ class Song
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private string $title;
 
     /**
      * @ORM\ManyToMany(targetEntity=Artist::class, inversedBy="songs")
      */
-    private $artist;
+    private Collection $artist;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $lyrics;
+    private string $lyrics;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Genre::class, cascade={"persist"})
+     * @ORM\JoinTable("song_genre")
+     */
+    private $genre;
 
     public function __construct()
     {
@@ -80,6 +86,30 @@ class Song
         return $this;
     }
 
+    /**
+     * @return Collection<int, Genre>
+     */
+    public function getGenre(): Collection
+    {
+        return $this->genre;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->genre->contains($genre)) {
+            $this->genre[] = $genre;
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(Genre $genre): self
+    {
+        $this->artist->removeElement($genre);
+
+        return $this;
+    }
+
     public function getLyrics(): ?string
     {
         return $this->lyrics;
@@ -94,6 +124,6 @@ class Song
 
     public function __toString()
     {
-        return $this->getTitle();
+        return $this->title;
     }
 }
