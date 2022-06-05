@@ -41,7 +41,7 @@ CREATE TABLE song_artist (
     INDEX IDX_722870DA0BDB2F3 (song_id), 
     INDEX IDX_722870DB7970CF8 (artist_id), 
     PRIMARY KEY(song_id, artist_id)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDBsql;
+) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
 sql;
         $this->addSql($sql);
         $this->addSql('ALTER TABLE song_artist ADD CONSTRAINT FK_722870DA0BDB2F3 FOREIGN KEY (song_id) REFERENCES song (id) ON DELETE CASCADE');
